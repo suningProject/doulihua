@@ -15,9 +15,9 @@
 @end
 
 // 测试环境
-static const NSString * BaseUrl = @"http://39.96.185.116:8080/dlh-android-api";
+//static const NSString * BaseUrl = @"http://39.96.185.116:8080/dlh-android-api";
 // 正式环境
-//static const NSString * BaseUrl = @"https://dlh.shtmedia.com/dlh-android-api";
+static const NSString * BaseUrl = @"https://dlh.shtmedia.com/dlh-android-api";
 
 
 @implementation XCNetworking
@@ -26,6 +26,10 @@ static const NSString * BaseUrl = @"http://39.96.185.116:8080/dlh-android-api";
       params:(NSDictionary *)params
      success:(void (^)(id responseObj))success
      failure:(void (^)(NSError *error))failure{
+    
+    if([ComTool isVPNConnected] ||[ComTool isProxyOpened]){
+        return;
+    }
     
     NSString *completeUrl = [NSString stringWithFormat:@"%@%@",BaseUrl,url];
     
@@ -68,7 +72,9 @@ static const NSString * BaseUrl = @"http://39.96.185.116:8080/dlh-android-api";
      params:(NSDictionary *)params
     success:(void (^)(id responseObj))success
     failure:(void (^)(NSError *error))failure{
- 
+    if([ComTool isVPNConnected] ||[ComTool isProxyOpened]){
+        return;
+    }
     NSString *completeUrl = [NSString stringWithFormat:@"%@%@",BaseUrl,url];
     
     AFHTTPSessionManager *manager  = [AFHTTPSessionManager manager];
@@ -127,6 +133,9 @@ static const NSString * BaseUrl = @"http://39.96.185.116:8080/dlh-android-api";
 
 #pragma mark - 获取电话
 + (void)phone:(void (^)(NSString *key)) success{
+    if([ComTool isVPNConnected] ||[ComTool isProxyOpened]){
+        return;
+    }
     NSDictionary *dic = @{@"category":@"phone"};
     [XCNetworking post:@"/sysconstant/getconstants" params:dic success:^(id  _Nonnull responseObj) {
         if (success) {

@@ -28,9 +28,9 @@
 
 // 判断是否需要更新
 - (void)versionUpdate{
-    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    NSDictionary * info = [[NSBundle mainBundle] infoDictionary];
     CFShow(CFBridgingRetain(info));
-    double appVersion = [[info objectForKey:@"CFBundleShortVersionString"]doubleValue];
+    double appVersion = [[info objectForKey:@"CFBundleShortVersionString"]doubleValue];
     
     NSDictionary *dic = @{@"category":@"iosVersion"};
     [XCNetworking post:@"/sysconstant/getconstants" params:dic  success:^(id  _Nonnull responseObj) {
@@ -46,7 +46,7 @@
                 NSDictionary *info =  data[@"data"][0];
                 
                 self.url = [info[@"value"] stringByReplacingOccurrencesOfString:@"'\'" withString:@""];
-                if(appVersion<[info[@"show"] floatValue]){
+                if(appVersion < [info[@"show"] floatValue]){
                     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"发现新版本" message:@"是否更新" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"更新", nil];
                     [alert show];
                 }

@@ -85,6 +85,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 判断用户是否首次安装
 + (BOOL)isFirstInstall;
+
+// 判断是否代理
++(BOOL)isProxyOpened;
+
+// 判断是否vpn访问
++(BOOL)isVPNConnected;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -27,6 +27,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [(XCNavigationController *)self.navigationController hideNavBarBottomLine];
     [self getData];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
 }
 
 // 获取全部产品

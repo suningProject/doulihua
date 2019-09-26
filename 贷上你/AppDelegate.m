@@ -25,9 +25,11 @@ static NSString *const kAppVersion = @"appVersion";
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //引导页通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAdVC) name:@"loadLuanch" object:nil];
     
+    [[UINavigationBar appearance] setBarTintColor:CREATE_RGB_COLOR(255, 137, 64)];
+//    
+   [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
 //  1. 获取秘钥
     [XCNetworking key:^(NSString * _Nonnull key) {
         [[NSUserDefaults standardUserDefaults]setObject:key forKey:@"key"];
@@ -39,15 +41,8 @@ static NSString *const kAppVersion = @"appVersion";
     }];
     
     [NSThread sleepForTimeInterval:1];
-    
-    if ([self isFirstLauch]) {
-        self.window.rootViewController = [UIViewController new];
-        [LaunchIntroductionView sharedWithImages:@[@"launch1",@"launch2",@"launch3"] buttonImage:nil buttonFrame:[UIScreen mainScreen].bounds];
-    }else {
-          [self setRootVc]; // 设置根视图控制器
-    }
+     [self setRootVc]; // 设置根视图控制器
 
-  
     [self.window makeKeyWindow];
     
     [self addReachabilityManager];

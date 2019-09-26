@@ -162,6 +162,7 @@
 		4695ED09871D485C60FB9386 /* libPods-贷上你.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CF9D1DBF9679EBA216A9D2 /* libPods-贷上你.a */; };
 		F83BDBCA233B4B3E00FF8AB0 /* ComTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F83BDBC8233B4B3D00FF8AB0 /* ComTool.m */; };
 		F83BDBCD233B675B00FF8AB0 /* LaunchIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F83BDBCC233B675B00FF8AB0 /* LaunchIntroductionView.m */; };
+		F83BDBD1233C60CE00FF8AB0 /* XHExitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F83BDBCF233C60CE00FF8AB0 /* XHExitVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +410,8 @@
 		F83BDBC9233B4B3D00FF8AB0 /* ComTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComTool.h; sourceTree = "<group>"; };
 		F83BDBCB233B675B00FF8AB0 /* LaunchIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchIntroductionView.h; sourceTree = "<group>"; };
 		F83BDBCC233B675B00FF8AB0 /* LaunchIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchIntroductionView.m; sourceTree = "<group>"; };
+		F83BDBCE233C60CE00FF8AB0 /* XHExitVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHExitVC.h; sourceTree = "<group>"; };
+		F83BDBCF233C60CE00FF8AB0 /* XHExitVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHExitVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -785,6 +788,8 @@
 				2C13B02A22BB648600C4DB46 /* View */,
 				2CD2239422BA159A0040260B /* XCPersonalController.h */,
 				2CD2239522BA159A0040260B /* XCPersonalController.m */,
+				F83BDBCE233C60CE00FF8AB0 /* XHExitVC.h */,
+				F83BDBCF233C60CE00FF8AB0 /* XHExitVC.m */,
 				2CD53F3E22C385060066B1B9 /* XCInformationController.h */,
 				2CD53F3F22C385060066B1B9 /* XCInformationController.m */,
 				2CD53F4022C385060066B1B9 /* XCInformationController.xib */,
@@ -1214,6 +1219,7 @@
 				2CDEAF9C22C9EA0400F947AF /* XCLodingView.m in Sources */,
 				2C13B07F22BB7B5A00C4DB46 /* MASConstraint.m in Sources */,
 				2CEF14F222C0B9D000F5FFAC /* XCNetworking.m in Sources */,
+				F83BDBD1233C60CE00FF8AB0 /* XHExitVC.m in Sources */,
 				2CC9DF8222E700BC00CA37B2 /* XCWillCollectionViewCell.m in Sources */,
 				2CA81EBE22DD70E2002431CB /* XCThemeView.m in Sources */,
 				2C13B07E22BB7B5A00C4DB46 /* View+MASAdditions.m in Sources */,
@@ -1417,14 +1423,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WHYF9X3ND3;
-				GCC_PREFIX_HEADER = "/Users/yezi/Desktop/舜泰/51贷款王/贷上你/Others(其他)/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/贷上你/Others(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/贷上你/Others(其他)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = con.51daikuanwang.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.dlh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1441,14 +1447,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WHYF9X3ND3;
-				GCC_PREFIX_HEADER = "/Users/yezi/Desktop/舜泰/51贷款王/贷上你/Others(其他)/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/贷上你/Others(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/贷上你/Others(其他)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = con.51daikuanwang.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.dlh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

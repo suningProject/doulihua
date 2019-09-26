@@ -443,4 +443,48 @@
 //    }
     return YES;
 }
+
+// 判断是否代理
++(BOOL)isProxyOpened;
+{
+    NSDictionary *proxySettings =  (__bridge NSDictionary *)(CFNetworkCopySystemProxySettings());
+    
+    NSLog(@"%@", proxySettings);
+    
+    NSArray *proxies = (__bridge NSArray *)(CFNetworkCopyProxiesForURL((__bridge CFURLRef _Nonnull)([NSURL URLWithString:@"http://www.baidu.com"]), (__bridge CFDictionaryRef _Nonnull)(proxySettings)));
+    NSDictionary *settings = [proxies objectAtIndex:0];
+    
+    NSLog(@"host=%@", [settings objectForKey:(NSString *)kCFProxyHostNameKey]);
+    NSLog(@"port=%@", [settings objectForKey:(NSString *)kCFProxyPortNumberKey]);
+    NSLog(@"type=%@", [settings objectForKey:(NSString *)kCFProxyTypeKey]);
+    
+    if ([[settings objectForKey:(NSString *)kCFProxyTypeKey] isEqualToString:@"kCFProxyTypeNone"]){
+        NSLog(@">>>>>>没有设置代理");
+        return NO;
+    }else{
+        NSLog(@">>>>>>设置了代理");
+        return YES;
+    }
+}
+
+
++(BOOL)isVPNConnected {
+//    https://www.meiwen.com.cn/subject/rkoaqqtx.html
+    
+    NSDictionary * proxySettings = (__bridge NSDictionary *)CFNetworkCopySystemProxySettings();
+    
+    NSLog(@"%@", proxySettings);
+    
+    NSArray * keys = [proxySettings[@"__SCOPED__"] allKeys];
+    for (NSString * key in keys) {
+        if ([key rangeOfString:@"tap"].location != NSNotFound ||
+            [key rangeOfString:@"tun"].location != NSNotFound ||
+            [key rangeOfString:@"ppp"].location != NSNotFound) {
+            NSLog(@">>>>>>开启了VPN");
+            return YES;
+        }
+    }
+    NSLog(@">>>>>>没有开启VPN");
+    return NO;
+}
 @end

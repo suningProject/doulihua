@@ -206,13 +206,13 @@
             [self pushWeb:self.home.todayRecommendProduct.h5Href title:self.home.todayRecommendProduct.name productId:self.home.todayRecommendProduct.productId type:3];
         }];
 
-        UIImageView *pro = [[UIImageView alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(self.exhausting.frame)+15, 43, 13)];
+        UIImageView *pro = [[UIImageView alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(self.exhausting.frame)+15, 60, 18)];
         pro.image = [UIImage imageNamed:@"notice"];
         [_scrollView addSubview:pro];
 
         
 //         通知内容
-        self.proLbl = [UILabel labelWithText:self.home.selfTitle textClolor:colorFromRGB(0x757575) font:12 frame:CGRectMake(CGRectGetMaxX(pro.frame)+7, CGRectGetMaxY(self.exhausting.frame)+15, screenWidth, 13)];
+        self.proLbl = [UILabel labelWithText:self.home.selfTitle textClolor:colorFromRGB(0x757575) font:12 frame:CGRectMake(CGRectGetMaxX(pro.frame)+7, CGRectGetMaxY(self.exhausting.frame)+17, screenWidth, 15)];
          [_scrollView addSubview:self.proLbl];
         
         UILabel *rectLab1 = [self rectLabWithCGRect:CGRectMake(7, CGRectGetMaxY(self.proLbl.frame)+21, 5, 16)];
@@ -238,10 +238,10 @@
         UILabel *rectLab2 = [self rectLabWithCGRect:CGRectMake(7, CGRectGetMaxY(self.willCollectionView.frame)+21, 5, 16)];
         [_scrollView addSubview:rectLab2];
         //热门推荐
-        self.hotLabel = [UILabel labelWithText:@"热门口子" textClolor:nil font:16 frame:CGRectMake(18, CGRectGetMaxY(self.willCollectionView.frame)+20, screenWidth, 18) isAggravation:NO];
+        self.hotLabel = [UILabel labelWithText:@"热门推荐" textClolor:nil font:16 frame:CGRectMake(18, CGRectGetMaxY(self.willCollectionView.frame)+20, screenWidth, 18) isAggravation:NO];
         [_scrollView addSubview: self.hotLabel];
 
-        self.all = [UIButton buttonWithText:@"更多口子" font:12 nmlTitleColor:colorFromRGB(0x6F6F6F) hightTitleColor:[UIColor lightGrayColor] frame:CGRectMake(0, CGRectGetMaxY(self.willCollectionView.frame)+20, screenWidth-22, 18) target:self action:@selector(allTouchUpinside)];
+        self.all = [UIButton buttonWithText:@"更多产品" font:12 nmlTitleColor:colorFromRGB(0x6F6F6F) hightTitleColor:[UIColor lightGrayColor] frame:CGRectMake(0, CGRectGetMaxY(self.willCollectionView.frame)+20, screenWidth-22, 18) target:self action:@selector(allTouchUpinside)];
         self.all.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_scrollView addSubview:self.all];
 

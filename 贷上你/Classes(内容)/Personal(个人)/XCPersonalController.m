@@ -11,6 +11,7 @@
 #import "XCPersonalHeardView.h"
 #import "XCInformationController.h"
 #import "XCHelpController.h"
+#import "XHExitVC.h"
 @interface XCPersonalController ()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)XCPersonalHeardView *heardView;
@@ -23,6 +24,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.delegate = self;
     [self setupTableView];
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -104,13 +106,13 @@
     switch (indexPath.row) {
         case 0:
             cell.imageView.image  = [UIImage imageNamed:@"qes"];
-            cell.textLabel.text = @"帮助中心";
+            cell.textLabel.text = @"常见问题";
 
             cell.des.hidden = YES;
             break;
         case 1:
             cell.imageView.image  = [UIImage imageNamed:@"kefu"];
-            cell.textLabel.text = @"联系客服";
+            cell.textLabel.text = @"设置";
              cell.des.hidden = YES;
             break;
     }
@@ -126,12 +128,11 @@
         case 0:{
             [self.navigationController pushViewController:[[XCHelpController alloc]init] animated:YES];
         }break;
-        case 1:{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"0755-86570650"];
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-            });
-        }break;
+        case 1:
+        {
+         [self.navigationController pushViewController:[[XHExitVC alloc]init] animated:YES];
+        }
+            break;
     }
 }
 

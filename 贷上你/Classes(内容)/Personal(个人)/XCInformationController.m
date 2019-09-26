@@ -21,20 +21,11 @@
     [super viewDidLoad];
     self.title = @"个人信息";
    
-    [self setupSubviews];
     [self getUserInfo];
     
 }
 
-- (void) setupSubviews{
-    UIButton *save = [UIButton buttonWithType:UIButtonTypeCustom];
-    [save setTitle:@"保存" forState:UIControlStateNormal];
-    [save setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-    [save setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    save.titleLabel.font = [UIFont systemFontOfSize:15];
-    [save addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:save];
-}
+
 
 - (void)getUserInfo{
     [XCNetworking get:@"/user/getuserinfo" params:nil  success:^(id  _Nonnull responseObj) {
@@ -63,8 +54,11 @@
     }];
 }
 
-// 修改个人信息
-- (void)save:(UIButton *)sender{
+
+
+#pragma mark - 保存方法
+- (IBAction)exit:(id)sender {
+    
     XCUser *get = [MNCacheClass mn_getSaveModelWithkey:@"XCUser" modelClass:[XCUser class]];
     NSDictionary *dic = @{@"userId":[NSNumber numberWithInteger:get.userId],
                           @"phone":self.phonetext.text,
@@ -78,24 +72,12 @@
                                                             options:NSJSONReadingMutableContainers
                                                               error:nil];
         if ([dic[@"status"] intValue] != 0) {
-             [XCRemindView show:dic[@"msg"]];
+            [XCRemindView show:dic[@"msg"]];
         }else{
             [self.navigationController popViewControllerAnimated:YES];
         }
     } failure:^(NSError * _Nonnull error) {
     }];
-}
-
-- (IBAction)exit:(id)sender {
-    [MNCacheClass mn_saveModel:[[XCUser alloc]init] key:@"XCUser"];
-//    [self.navigationController popViewControllerAnimated:YES];
-    [XCNetworking get:@"/user/logout" params:nil success:^(id  _Nonnull responseObj) {
-        NSLog(@"%@",responseObj);
-    } failure:^(NSError * _Nonnull error) {
-    }];
-    
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    window.rootViewController = [[XCLoginController alloc] init];
 }
 
 + (BOOL)cly_verifyIDCardString:(NSString *)idCardString {
