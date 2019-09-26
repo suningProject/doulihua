@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+
+platform :ios, ‘8.0’
+
+target '贷上你' do
+
+pod 'SDCycleScrollView'
+pod 'MJRefresh'
+pod 'AFNetworking', '~> 3.0'
+pod 'MJExtension'
+pod 'SDWebImage', '~> 5.0'
+pod 'YYWebImage'
+end
